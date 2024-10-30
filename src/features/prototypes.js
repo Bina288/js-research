@@ -39,6 +39,16 @@ const resultobj = {
   'Object.prototype': safeToString(Object.prototype.constructor),
   '{}.prototype': safeToString({}.prototype?.constructor),
   '{}.__proto__': safeToString({}.__proto__.constructor),
+  'Array.prototype': safeToString(Array.prototype.constructor),
+  '[].prototype': safeToString([].prototype?.constructor),
+  '[].__proto__': safeToString([].__proto__.constructor),
+  '[].prototype===Array.prototype': safeToString(
+    [].prototype === Array.prototype,
+  ),
+  '[].__proto__===Array.prototype': safeToString(
+    [].__proto__ === Array.prototype,
+  ),
+
   'MyClass.prototype': safeToString(MyClass.prototype.constructor),
   'MyClass.__proto__': safeToString(MyClass.__proto__.constructor),
   'Number.prototype': safeToString(Number.prototype.constructor),
