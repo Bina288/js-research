@@ -1,14 +1,9 @@
 <template>
-  <ul>
-    <li v-for="(value, key) in displayResultObj" :key="key">
-      Result of "{{ key }}": {{ value }}
-    </li>
-  </ul>
+  <view-component :result="prototypes.resultobj"
+    >Proto and prototype:</view-component
+  >
 </template>
 <script setup>
-import { computed } from 'vue'
 import prototypes from '@/features/prototypes'
-const displayResultObj = computed(() => {
-  return prototypes.resultobj
-})
+import ViewComponent from '../components/ViewComponent.vue'
 </script>
