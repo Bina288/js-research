@@ -1,7 +1,7 @@
 <template>
   <ul>
     <li v-for="(value, key) in displayResultObj" :key="key">
-      Result of "{{ key }}": {{ value }}
+      Result of <b style="font-weight: bold">"{{ key }}"</b>: {{ value }}
     </li>
   </ul>
 </template>
