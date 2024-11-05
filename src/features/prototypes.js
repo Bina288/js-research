@@ -86,6 +86,8 @@ const resultobj = {
   '5.__proto__===6.__proto__': safeToString(
     numb.__proto__ === nextNumb.__proto__,
   ),
+  '5.__proto__.__proto__': safeToString(numb.__proto__.__proto__.constructor),
+  '{}.__proto__.__proto__': safeToString({}.__proto__.__proto__),
 }
 
 console.log('resultobj', resultobj)
