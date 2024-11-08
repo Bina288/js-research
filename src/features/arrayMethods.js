@@ -22,15 +22,9 @@ let substractionReduce = numericArray.reduce((item, current) => item - current)
 let substractionReduceRight = numericArray.reduceRight(
   (item, current) => item - current,
 )
-
-console.log('myXORResultReduce', XORReduce)
-console.log('substractionReduce', substractionReduce)
-
-console.log('substractionReduceRight', substractionReduceRight)
 //reference data type
 let ref = numericArray
 ref[1] = 111
-console.log('numericArray', numericArray)
 numericArray.at(-1)
 
 let notRefConcat = numericArray.concat()
@@ -49,6 +43,22 @@ let mapWordsLengthArr = stringArray.map(item => item.length)
 
 let joinNumArr = numericArray.join()
 let joinObjArr = objArray.join(' ; ')
+
+//task
+function magicFunc(...args) {
+  //  console.log('i')
+  let sum = args.reduce((s, i) => {
+    //  console.log(Number(i))
+    return s + (Number(i) || 0)
+  }, 0)
+  let f = magicFunc.bind(null, sum)
+  f.valueOf = () => sum
+  return f
+}
+console.log('magicFunc', magicFunc(3) == 3)
+console.log('magicFunc', magicFunc(1, 4) == 5)
+console.log('magicFunc', magicFunc(1)(4) == 5)
+//task end
 
 let result = {
   numericArray: numericArray,

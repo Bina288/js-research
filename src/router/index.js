@@ -27,6 +27,11 @@ const router = createRouter({
       name: 'arrayMethods',
       component: () => import('../views/ArraysView.vue'),
     },
+    {
+      path: '/objects',
+      name: 'objects',
+      component: () => import('../views/ObjectsView.vue'),
+    },
   ],
 })
 
