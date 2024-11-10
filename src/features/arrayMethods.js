@@ -61,13 +61,13 @@ console.log('magicFunc', magicFunc(1)(4) == 5)
 //task end
 
 let result = {
-  numericArray: numericArray,
+  numericArray,
   'numericArray.at(-1)': numericArray.at(-1),
   'numericArray.at(0)': numericArray.at(0),
   'numericArray.at(1)': numericArray.at(1),
   'numericArray.sort()': numericArray.sort(),
 
-  stringArray: stringArray,
+  stringArray,
   'stringArray.sort()': [...stringArray].sort(),
 
   //array comparisons
@@ -94,7 +94,7 @@ let result = {
   'stringArray.indexOf(Apple)': stringArray.indexOf('Apple'),
   //includes and indexOf
 
-  objArray: objArray,
+  objArray,
   'objArray.indexOf(NaN)': objArray.indexOf(NaN),
   'objArray.includes(NaN)': objArray.includes(NaN),
   'objArray.indexOf(undefined)': objArray.indexOf(undefined),

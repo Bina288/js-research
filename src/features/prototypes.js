@@ -24,6 +24,8 @@ const exprButNotArrowFunc = function () {
 let numb = 5
 let nextNumb = 6
 
+numb.__proto__ = 10
+
 class MyClass {}
 
 let str = 'gfg'
