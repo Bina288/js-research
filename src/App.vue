@@ -10,6 +10,7 @@ import { RouterLink, RouterView } from 'vue-router'
         <RouterLink to="/prototypes">Prototypes</RouterLink>
         <RouterLink to="/arrayMethods">Array Methods</RouterLink>
         <RouterLink to="/objects">Objects</RouterLink>
+        <RouterLink to="/classes">Classes and Functions</RouterLink>
         <RouterLink to="/about">About</RouterLink>
       </nav>
     </div>

@@ -1,24 +1,11 @@
 import safeToString from '@/composables/safeToString'
 
-//https://learn.javascript.ru/prototype-inheritance
-
 const nestedObject = { firstNumber: 0, firstString: 'rtgghtg' }
-
-//research keys properties
-let dynamicKey = 'id'
-let notExistDynamicKey = 'notExistDynamicKey'
 
 //experimental subject
 const theObject = {
   id: 1,
   name: 'Abc',
-  // skills: { jumping: 5, running: 6 },
-  // 'can swimming': false,
-  // [dynamicKey]: 'dynamicKey instead  of id = 1',
-  // 5: 'five',
-  // 115: 'two hundred fifteen',
-  // arrayValue: [5, 10, 15],
-  // otherObj: nestedObject,
   objMethod() {
     return 'objMethod ' + this
   },
