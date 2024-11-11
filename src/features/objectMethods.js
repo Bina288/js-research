@@ -1,56 +1,83 @@
-const numericArray = [4, 6, 3, 7, 3]
+import safeToString from '@/composables/safeToString'
 
-const stringArray = ['banana', 'Orange', 'apple', 'melon', 'Grapefruit']
-const objArray = [
-  { id: 1, name: 'Abc', skills: { jumping: 5, running: 6 } },
-  { id: 2, name: 'Bca', skills: { jumping: 8, running: 4 } },
-  NaN,
-  null,
-  undefined,
-]
+//https://learn.javascript.ru/prototype-inheritance
 
-let team = {
-  canRunning(obj) {
-    return obj?.skills?.running > 5
+const nestedObject = { firstNumber: 0, firstString: 'rtgghtg' }
+
+//research keys properties
+let dynamicKey = 'id'
+let notExistDynamicKey = 'notExistDynamicKey'
+
+//experimental subject
+const theObject = {
+  id: 1,
+  name: 'Abc',
+  // skills: { jumping: 5, running: 6 },
+  // 'can swimming': false,
+  // [dynamicKey]: 'dynamicKey instead  of id = 1',
+  // 5: 'five',
+  // 115: 'two hundred fifteen',
+  // arrayValue: [5, 10, 15],
+  // otherObj: nestedObject,
+  objMethod() {
+    return 'objMethod ' + this
+  },
+  objMethodLikeField: function () {
+    return 'objMethodLikeField ' + this
+  },
+  objarrayMethod: () => {
+    return 'objMethodLikeField ' + this
+  },
+}
+theObject.objMethod()
+theObject.objarrayMethod
+
+let arrayLike = {
+  0: 'Hello',
+  1: 'World',
+  length: 2,
+}
+
+let map = new Map([
+  ['1', 'str1'],
+  [1, 'num1'],
+  [true, 'bool1'],
+])
+
+const arrayFromMap = Object.fromEntries(map)
+//hints
+let first = {
+  id: 1,
+  [Symbol.toPrimitive](hint) {
+    return hint === 'number' ? this.id : `id = ${this.id}`
+  },
+}
+let second = {
+  id: 2,
+  [Symbol.toPrimitive](hint) {
+    return hint === 'number' ? this.id : `id = ${this.id}`
   },
 }
 
-let boolArray = [false, true, true, false]
-
-let XORReduce = boolArray.reduce((xor, current) => xor !== current)
-let substractionReduce = numericArray.reduce((item, current) => item - current)
-let substractionReduceRight = numericArray.reduceRight(
-  (item, current) => item - current,
+let entries = { a: 1, b: 2 }
+let longKeys = Object.fromEntries(
+  Object.entries(entries).map(([key, value]) => [key + key, value]),
 )
-//reference data type
-let ref = numericArray
-ref[1] = 111
-numericArray.at(-1)
 
-let notRefConcat = numericArray.concat()
-let notRefSlice = numericArray.slice()
-
-let objFindById = objArray.find(item => item.id === 1)
-let objFindByJumpingInSkills = objArray.find(item => item.skills.jumping === 8)
-
-let filterMethodArr = numericArray.filter(item => item % 2 === 0)
-
-let mapMethodArr = numericArray.map(item => item * 2)
-
-let mapBooleanArr = numericArray.map(item => item % 2 === 0)
-
-let mapWordsLengthArr = stringArray.map(item => item.length)
-
-let joinNumArr = numericArray.join()
-let joinObjArr = objArray.join(' ; ')
-
-let result = {
-  numericArray: numericArray,
-  'numericArray.at(-1)': numericArray.at(-1),
-  'numericArray.at(0)': numericArray.at(0),
-  'numericArray.at(1)': numericArray.at(1),
-  'numericArray.sort()': numericArray.sort(),
+const result = {
+  theObject,
+  'Array.from(arrayLike)': Array.from(arrayLike),
+  //[...arrayLike]//- TypeError: arrayLike is not iterable
+  'theObject.objMethod()': theObject.objMethod(),
+  'theObject.objarrayMethod()': theObject.objarrayMethod(), //TypeError: Cannot read properties of undefined (reading 'name')
+  'arrayFromMap = Object.fromEntries(map)': arrayFromMap,
+  '[Symbol.toPrimitive](hint): first.id=1, second.id=2, first>second':
+    first > second,
+  'first<second': first < second,
+  'entries = {a: 1, b: 2};longKeys = Object.fromEntries(Object.entries(entries).map(([key,value]) => [key+key,value]))':
+    longKeys,
 }
+
 export default {
   result,
 }
