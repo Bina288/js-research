@@ -36,6 +36,9 @@ clone3Spread.otherObj.firstNumber++
 const structClone = structuredClone(theObject)
 structClone.otherObj.firstString = 'STRUCT CLONE)'
 
+//proto
+nestedObject.__proto__ = theObject
+
 const result = {
   theObject,
   'theObject.dynamicName': safeToString(theObject.dynamicName),
@@ -53,6 +56,7 @@ const result = {
   'const clone3Spread = {...theObject}; clone3Spread.name = Def, oterObj.firstNumber++(0->1)':
     clone3Spread,
   'const structClone = structuredClone(theObject)': structClone,
+  'nestedObject.__proto__ = theObject; nestedObject.name': nestedObject.name,
 }
 export default {
   result,

@@ -6,6 +6,9 @@ const nestedObject = { firstNumber: 0, firstString: 'rtgghtg' }
 const theObject = {
   id: 1,
   name: 'Abc',
+  get capsName() {
+    return this.name.toUpperCase()
+  },
   objMethod() {
     return 'objMethod ' + this
   },
@@ -63,6 +66,9 @@ const result = {
   'first<second': first < second,
   'entries = {a: 1, b: 2};longKeys = Object.fromEntries(Object.entries(entries).map(([key,value]) => [key+key,value]))':
     longKeys,
+  //get set
+  'theObject = { name: Abc,  get capsName()}, theObject.capsName':
+    theObject.capsName,
 }
 
 export default {
